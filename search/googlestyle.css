@@ -1,0 +1,162 @@
+body {
+    font-family: arial, sans-serif;
+    margin: 0;
+}
+
+nav {
+    float: right;
+    clear: both;
+    font-size: 13px;
+    margin: 25px 5px;
+    padding-right: 20px;
+    padding-bottom: 3px;
+}
+
+.imgwrapper {
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    clear: both;
+    float: right;
+    padding-top: 150px;
+    padding-bottom: 20px;
+}
+
+header nav {
+    margin-top: 0;
+    padding-top: 8px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+/*wrapper for search bar*/
+.searchbar {
+    width: 450px;
+    margin: auto;
+    height: 40px;
+    clear: both;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/*basic search bars on regular and image search pages*/
+input[name="q"]{
+    width: 450px;
+    height: 40px;
+    margin: auto;
+    border-style: solid;
+    border-radius: 50px;
+    border-color: lightgray;
+    border-width: 1px;
+    box-shadow: none;
+    font-size: 100%;
+}
+
+/*search bars on advanced search page*/
+input[name="as_q"], input[name="as_epq"], input[name="as_oq"], input[name="as_eq"]{
+    width: 50%;
+    height: 20px;
+    font-size: 100%;
+}
+
+/*wrapper for all search items on advanced search page*/
+.criteriawrapper {
+    width: 100%;
+}
+
+h2 {
+    color: #dd4b39;
+    font-size: 20px;
+    font-weight: normal;
+    margin-left: 50px;  
+    width: 200px;
+    margin-right: 0px;
+    box-sizing: border-box;
+}
+
+h3 {
+    color: #333;
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: 50px;  
+}
+
+.sectiondivider {
+    border-bottom: 1px;
+    border-bottom-color: #ebebeb;
+    border-bottom-style: solid;
+}
+
+form {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.criteria {
+clear: both; 
+font-size: 13px;
+width: 100%;
+padding-bottom: 10px;
+}
+
+label, .spacerblock {
+    width: 16%;
+    min-width: 167px;
+    display: inline-block;
+    height: 15px;
+    float: left;
+}
+
+.buttonwrapper {
+    margin: auto;
+    text-align: center;
+}
+
+.button {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 4px;
+    margin-right: 4px;
+    font-size: 14px;
+    color: #5F6368;
+    background-color: #f2f2f2;
+    border-color: #f2f2f2;
+    border-width: 1px;
+    border-style: solid;
+    font-family: arial, sans-serif;
+    border-radius: 5px;
+}
+
+input[name=btnK], input[name=btnI] {
+    display: inline;
+}
+
+
+.advancedbuttonwrapper {
+    float: left;
+    display: inline-block;
+    min-width: 167px;
+    min-height: 41px;
+    width: 50%;
+    padding-left: 6px;
+}
+
+.advancedbutton {
+    float: right;
+    color: #fff;
+    font-weight: bold;
+    background-color: #4d90fe;
+    border-color: #3079ed;
+    background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+    border-width: 1px;
+    border-style: solid;
+    height: 30px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
