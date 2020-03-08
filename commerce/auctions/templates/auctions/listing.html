@@ -1,0 +1,104 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+<h2>{{ listing.title }}</h2>
+
+    <!-- If this user is the user who created the listing, show: -->
+    {% if listing.user == currentuser %}
+        {% if listing.active == True %}
+            <form method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Close auction" name="submit_close">
+            </form>
+        {% endif %}
+    {% endif %}
+
+    {% if listing.active == False %}
+        <p>
+            This auction has been closed.
+        </p>
+    <!-- Here is where the auction winner info would go. -->
+        {% if winner == currentuser %}
+            <p>
+                Congratulations! You are the winner of this auction!
+            </p>
+        {% endif %}
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        {% if watchlistitem %}
+            <!-- If a watchlist item matching this user and listing exists, show: -->
+            <form method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Remove from watchlist" name="submit_remove"> 
+            </form>
+        {% else %}
+            <!-- If no watchlist item matching this user and listing exists, show: -->
+            <form method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Add to watchlist" name="submit_add">
+            </form>
+        {% endif %}
+    {% endif %}
+
+    {% if listing.image_Url %}
+        <p><img src={{listing.image_Url}} alt="Image of item in listing" height="500" width="500"></p>
+    {% else %}
+        <p><img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="No image for item in listing" height="500" width="500"></p>
+    {% endif %}
+        <p><span class="detailheader">Description: </span>{{ listing.description }}</p>
+        <p><span class="detailheader">Category: </span>{{ listing.category }}</p>
+        {% if listing.listingbids.last.bid_Amount %}
+            <p><span class="detailheader">Current price: </span>${{ listing.listingbids.last.bid_Amount }}</p>
+        {% else %}
+            <p><span class="detailheader">Current price: </span>${{ listing.starting_Bid }}</p>
+        {% endif %}
+        <!-- If the user is logged in, they can make a bid: -->
+        {% if user.is_authenticated %}
+            {% if listing.active == True %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <p>{{ bidform }}
+                    {% if message %}
+                    <div>{{ message }}</div>
+                    {% endif %}
+                    <input type="submit" value="Save" name="submit_bid"></p>
+                </form>
+            {% endif %}
+        {% endif %}
+        <ul>
+            <li>
+                <p><span class="detailheader">STARTING BID: </span>
+                ${{ listing.starting_Bid }}</p>
+            </li>
+            {% for listingbid in listing.listingbids.all %}
+            <li>
+                <p><span class="detailheader">BID: </span>
+                ${{ listingbid.bid_Amount }} <span class="commentBidDetails">Placed by: {{ listingbid.bid_User }}</span></p>
+            </li>
+            {% endfor %}
+        </ul>
+        <!-- If the user is logged in, they can make a comment: -->
+        {% if user.is_authenticated %}
+            {% if listing.active == True %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <p>{{ commentform }}
+                    <input type="submit" value="Save" name="submit_comment"></p>
+                </form>
+            {% endif %}
+        {% endif %}
+        <ul>
+            {% if listing.listingcomments.all %}
+            <li>
+                <p><span class="detailheader">~COMMENTS~</span></p>
+            </li>
+            {% endif %}
+            {% for listingcomment in listing.listingcomments.all %}
+            <li>
+                <p>{{ listingcomment.comment_Content }} <span class="commentBidDetails">Submitted by: {{ listingcomment.comment_User }}</span></p>
+            </li>
+            {% endfor %}
+        </ul>
+{% endblock %}

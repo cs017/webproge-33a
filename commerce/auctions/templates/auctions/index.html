@@ -1,0 +1,29 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+
+    <ul>
+        {% for listing in listings %}
+        <li id="indexDiv"><a href="{% url 'listings' listing %}">
+            <ul>
+                <li><h3>{{ listing.title }}</h3></li>
+                {% if listing.image_Url %}
+                <li><p><img src={{listing.image_Url}} alt="Image of item in listing" height="300" width="300"></p></li>
+                {% else %}
+                <li><p><img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="No image for item in listing" height="300" width="300"></p></li>
+                {% endif %}
+                <li>{{ listing.description }}</li>
+                {% if listing.listingbids.last.bid_Amount %}
+                <li>Current price: ${{ listing.listingbids.last.bid_Amount }}</li>
+                {% else %}
+                <li>Current price: ${{ listing.starting_Bid }}</li>
+                {% endif %}
+
+
+            </ul>
+        </a></li> 
+        {% endfor %}
+    </ul>
+
+{% endblock %}

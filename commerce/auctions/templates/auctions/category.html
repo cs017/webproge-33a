@@ -1,0 +1,17 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+<h2>{{ category.name }}</h2>
+
+    <ul>
+        {% for catlisting in category.catlistings.all %}
+        <li class="indexitem">
+            {% if catlisting.active == True %}
+            <a href="{% url 'listings' catlisting.id %}">{{ catlisting.title }}</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

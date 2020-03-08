@@ -1,0 +1,111 @@
+html {
+    height: 100%;
+}
+
+body {
+    padding: 10px;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: #7A8D90;
+    font-family: Avenir, Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #F2F4F3;
+    font-family: Avenir, Arial, sans-serif;
+    text-align: center;
+    font-variant: small-caps;
+    letter-spacing: 10px;
+}
+
+h2 {
+    color: #F2F4F3;
+    font-family: Avenir, Arial, sans-serif;
+    text-align: center;
+    padding: 10px;
+}
+
+h3 {
+    color: #F2F4F3;
+    font-family: Avenir, Arial, sans-serif;
+    text-align: center;
+}
+
+.indexitem{
+    margin: auto;
+    padding: 15px 5px;
+    text-align: center;
+}
+
+.indexitem a{
+    height: 100%;
+    width: 100%;
+    padding: 15px 100px;
+}
+
+a {
+    color: #F2F4F3;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+}
+
+.indexitem a:hover {
+    background-color: #A3BCC0;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    background-color: #F2F4F3;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+#indexDiv {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 5px;
+    margin: 100px;
+    padding: 10px;
+    text-align: center;
+}
+
+#indexDiv:hover {
+    background-color: #A3BCC0;
+    color: black;
+}
+
+input[type=submit]{
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+}
+
+input[type=submit]:hover {
+    background-color: #22333B;
+    border-color: #22333B;
+    color: #A3BCC0;
+}
+
+input[type=text], input[type=number]{
+    border-radius: 10px;
+}
+
+.commentBidDetails {
+    font-style: italic;
+}
+
+.detailheader {
+    font-weight: bold;
+}
