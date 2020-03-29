@@ -1,0 +1,37 @@
+textarea {
+    min-height: 400px;
+}
+
+#emails-view div {
+    margin: 5px;
+    padding: 10px;
+    border-style: solid;
+    border-color: darkgray;
+    border-width: 1px;
+    /*display: inline;*/
+}
+
+#emails-view p {
+    padding: 10px;
+    display: inline;
+}
+
+#emails-view span {
+    float: right;
+    margin-right: 5px;
+}
+
+#emails-view div:hover {
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.emailProperty {
+    font-weight: bolder;
+    display: inline;
+}
+
+#body {
+    display: block;
+    margin-top: 2px;
+}
