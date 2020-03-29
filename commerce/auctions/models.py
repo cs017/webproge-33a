@@ -1,8 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-##FIGURE OUT CASCADE/PROTECT
-
 class User(AbstractUser):
     pass
 
