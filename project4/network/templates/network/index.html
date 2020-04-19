@@ -1,0 +1,39 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+    <div id="all-posts-view">
+        <h3>All Posts</h3>
+
+        <h5>New Post</h5>
+        <form id="compose-post">
+            <textarea class="form-control" id="compose-body" placeholder="Type your post here..."></textarea>
+            <input type="submit" class="btn btn-primary"/>
+        </form>
+        
+    </div>
+    <div id="following-view">
+        <h3>Posts from users you follow:</h3>
+    </div>
+    <div id="profile-view">
+        <h3 id="profile-header"></h3>
+        <p id="this-profile-followed-by"></p>
+        <p id="this-profile-follows"></p>
+        <button id="follow-button">Follow</button>
+        <button id="unfollow-button">Unfollow</button>
+    </div>
+    <div id="display-posts-view">
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" id="previous-page"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item" id="next-page"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
+    {% endif %}
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+{% endblock %}

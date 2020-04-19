@@ -1,0 +1,16 @@
+#display-posts-view div {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    margin: 10px;
+    text-align: center;
+}
+
+#display-posts-view div span {
+    margin: 3px;
+}
+
+#display-posts-view div textarea {
+    margin: auto;
+    text-align: center;
+}
