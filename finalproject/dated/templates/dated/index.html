@@ -1,0 +1,84 @@
+{% extends "dated/layout.html" %}
+{% load static %}
+
+{% block body %}
+    
+    {% if user.is_authenticated %}
+        <h3>Viewing calendar for: <span id="calendar-name-header"></span></h3>
+        <input type="button" id="add-event-header" class="btn btn-primary" value="Add An Event">
+        <input type="button" id="cal-return-header" class="btn btn-primary" value="Back To My Calendar">
+        <form id="create-form">
+            <div class="form-group">
+                Host: <input disabled class="form-control" value="{{ request.user.username }}" id="create-host">
+            </div>
+            <div class="form-group">
+                Invitees: <input id="create-invitees" class="form-control" placeholder="Enter usernames here separated by commas" required>
+            </div>
+            <div class="form-group">
+                Start Date: <input type="date" class="form-control" id="create-start-day" required>
+            </div>
+            <div class="form-group">
+                Start Time: <input type="time" class="form-control" id="create-start-time" required>
+            </div>
+            <div class="form-group">
+                End Date: <input type="date" class="form-control" id="create-end-day" required>
+            </div>
+            <div class="form-group">
+                End Time: <input type="time" class="form-control" id="create-end-time" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="create-title" placeholder="Meeting Title" required>
+            </div>
+            <textarea class="form-control" id="create-description" placeholder="Description"></textarea>
+            <input type="submit" id="submit-create" class="btn btn-primary" value="Save">
+            <input type="button" id="cancel-create" class="btn btn-primary" value="Cancel">
+        </form>
+
+        <form id="edit-form">
+            <h4 id="edit-heading">Edit This Event:</h4>
+            <div class="form-group">
+                Host: <input disabled class="form-control" value="{{ request.user.username }}" id="edit-host">
+            </div>
+            <div class="form-group">
+                Invitees: <input id="edit-invitees" class="form-control" placeholder="Enter usernames here separated by commas" required>
+            </div>
+            <div class="form-group">
+                Start Date: <input type="date" class="form-control" id="edit-start-day" required>
+            </div>
+            <div class="form-group">
+                Start Time: <input type="time" class="form-control" id="edit-start-time" required>
+            </div>
+            <div class="form-group">
+                End Date: <input type="date" class="form-control" id="edit-end-day" required>
+            </div>
+            <div class="form-group">
+                End Time: <input type="time" class="form-control" id="edit-end-time" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="edit-title" placeholder="Meeting Title" required>
+            </div>
+            <textarea class="form-control" id="edit-description" placeholder="Description"></textarea>
+            <input type="submit" id="submit-edit" class="btn btn-primary" value="Save Edits">
+            <input type="button" id="cancel-edit" class="btn btn-primary" value="Cancel Edits">
+        </form>
+
+        <form id="month-selector-form">
+            <label for="month">Go to month: </label>
+            <input type="month" id="select-month">
+            <input type="submit" id="submit-month-selector" class="btn btn-primary" value="Go">
+        </form>
+
+        <div id="calendar-layout-view">
+            <div id="heading-wrapper">
+                <h4 id="month-heading"></h4>
+            </div>
+            <div id="calendar-grid">
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+{% block script %}
+    <script src="{% static 'dated/index.js' %}"></script>
+{% endblock %}

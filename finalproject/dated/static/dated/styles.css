@@ -1,0 +1,138 @@
+h4 {
+    margin: auto;
+}
+
+#calendar-layout-view {
+    margin: auto;
+}
+
+#heading-wrapper {
+    margin: auto;
+    padding: auto;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+#month-heading {
+    display: inline;
+}
+
+.spacerDayClass {
+    box-sizing: border-box;
+    width: calc(93%/7);
+    margin: .5%;
+    text-align: center;
+    float: left;
+    height: 150px;
+}
+
+.dayClass {
+    box-sizing: border-box;
+    width: calc(93%/7);
+    border-style: solid;
+    border-width: 2px;
+    border-color: #254C73;
+    margin: .5%;
+    text-align: center;
+    float: left;
+    height: 150px;
+    overflow: auto;
+}
+
+.eventClass {
+    font-size: smaller;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    background-color: #598392;
+    color: white;
+    margin: 5%;
+    border-radius: 10%;
+}
+
+.eventClass:hover {
+    background-color: #AEC3B0;
+    color: black;
+    cursor: pointer;
+}
+
+.eventDetailsClass {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: darkgray;
+    border-width: 1px;
+    background-color: #598392;
+    color: white;
+    width: 200px;
+    position: absolute;
+    z-index: 1000000;
+    text-align: left;
+    padding: 5px;
+}
+
+#select-month {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: lightgray;
+    border-width: 1px;
+}
+
+#edit-form {
+    clear: left;
+}
+
+#add-event-header, #cal-return-header {
+    display: inline;
+}
+
+.expand-buttons {
+    background-color: #9CD183;
+    border-radius: 5px;
+    color: white;
+}
+
+.eventInfoClass {
+    margin: 0px;
+}
+
+li {
+    padding: 0px;
+}
+
+.userItem {
+    color: #AEC3B0;
+}
+
+.detailsButtons {
+    margin: 3px;
+}
+
+/* If the screen size is 600px or less, change calendar layout from a grid to a scroll */
+@media only screen and (max-width: 600px) {
+    .spacerDayClass {
+        box-sizing: border-box;
+        width: 90%;
+        margin: .5%;
+        text-align: center;
+        float: left;
+        height: 1px;
+    }
+    
+    .dayClass {
+        box-sizing: border-box;
+        width: 90%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #254C73;
+        margin-top: .5%;
+        margin-bottom: .5%;
+        margin-left: 5%;
+        margin-right: 5%;
+        align-items: center;
+        text-align: center;
+        height: 150px;
+        overflow: auto;
+    }
+}
